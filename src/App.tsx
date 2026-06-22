@@ -36,10 +36,7 @@ type Tab = 'dashboard' | 'ai-insights' | 'agents';
 
 export default function App() {
   const [assets, setAssets] = useState<Asset[]>(() => {
-    const saved = localStorage.getItem('kefur_assets');
-    if (saved) {
-      try { return JSON.parse(saved); } catch (e) { return INITIAL_ASSETS; }
-    }
+    // Live prices come from backend — never use stale localStorage cache
     return INITIAL_ASSETS;
   });
 
@@ -289,6 +286,18 @@ export default function App() {
           topGainerSymbol: 'SOL',
           topLoserSymbol: 'TSLA',
         });
+        // Sync crypto asset prices with live backend data
+        if (data.market?.prices) {
+          setAssets(prev => prev.map(a => {
+            const livePrice = data.market.prices[a.symbol];
+            if (livePrice && livePrice > 0) {
+              const oldPrice = a.price;
+              const change24h = oldPrice > 0 ? ((livePrice - oldPrice) / oldPrice) * 100 + a.change24h : a.change24h;
+              return { ...a, price: livePrice, change24h: Number(change24h.toFixed(2)) };
+            }
+            return a;
+          }));
+        }
       } catch {
         // Backend offline — keep defaults
       }
