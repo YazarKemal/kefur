@@ -560,6 +560,7 @@ async def trading_loop():
                 selected_network, net_reason = select_optimal_network(
                     trade_amount if action == "BUY" else (pct / 100) * agent_cash,
                     wallets,
+                    agent_id=agent_id,
                 )
                 gas = get_gas_fee(selected_network)
 

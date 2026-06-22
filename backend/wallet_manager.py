@@ -42,45 +42,58 @@ def init_wallets(cash_amount: float) -> dict[str, float]:
     return wallets
 
 
-def select_optimal_network(trade_amount_usd: float, wallets: dict[str, float]) -> tuple[str, str]:
+def select_optimal_network(trade_amount_usd: float, wallets: dict[str, float], agent_id: str = "") -> tuple[str, str]:
     """Pick the best network for a trade based on gas/trade ratio and wallet balance.
 
-    Rules:
-    - trade < ₺20  → Osmosis only (₺0.02 gas = 0.1% of ₺20)
-    - trade < ₺200 → Arbitrum preferred (₺0.10 gas = 0.05% of ₺200)
-    - trade >= ₺200 → Ethereum viable (₺5 gas = 2.5% of ₺200, acceptable)
-    - If preferred network lacks funds, fall back to the next one with enough balance.
+    Hard rules:
+    - 20x rule: if trade < 20 × gas_fee, the network is HARD-REJECTED (gas > 5% of trade).
+    - L2 priority: oracle & sentinel skip Ethereum unless trade > ₺3,350 (20 × ₺167.50).
+    - Ethereum only viable when trade >= ₺3,350 (gas ≤ 5%).
     """
-    gas_ratio_threshold = 0.02  # max 2% gas cost of trade amount is acceptable
+    GAS_RATIO_HARD_CAP = 0.05  # max 5% — equivalent to 20x rule
 
     candidates: list[tuple[str, float]] = []
     for net_id in NETWORK_IDS:
         gas = NETWORKS[net_id]["gas_fee"]
         if trade_amount_usd <= 0:
             continue
+
+        # ── 20x Hard Rule: reject network if gas > 5% of trade ─────────
         ratio = gas / trade_amount_usd
+        if ratio > GAS_RATIO_HARD_CAP:
+            continue  # hard-reject — gas would eat the position
+
+        # ── L2 Priority: Oracle & Sentinel skip Ethereum for small trades ─
+        if agent_id in ("oracle", "sentinel") and net_id == "ethereum":
+            continue  # these agents must use L2
+
         balance = wallets.get(net_id, 0)
         if balance >= (trade_amount_usd + gas):
             candidates.append((net_id, ratio))
 
     if not candidates:
-        # No single network can cover the trade — try to find any with funds
+        # Fallback: re-check with relaxed rules, but still enforce 20x
+        for net_id in NETWORK_IDS:
+            gas = NETWORKS[net_id]["gas_fee"]
+            ratio = gas / trade_amount_usd if trade_amount_usd > 0 else 1.0
+            if ratio > GAS_RATIO_HARD_CAP:
+                continue
+            if wallets.get(net_id, 0) >= gas:
+                return net_id, (
+                    f"Fallback: {NETWORKS[net_id]['name']} "
+                    f"(gas={ratio*100:.1f}% — balance insufficient for full trade)"
+                )
+
+        # Last resort: any network with funds (bypass 20x to avoid deadlock)
         for net_id in NETWORK_IDS:
             if wallets.get(net_id, 0) >= NETWORKS[net_id]["gas_fee"]:
-                return net_id, f"Insufficient balance on optimal network — forced {NETWORKS[net_id]['name']}"
+                return net_id, f"Emergency: {NETWORKS[net_id]['name']} (20x rule bypassed — no viable network)"
         return "osmosis", "All networks depleted — forced Osmosis"
 
     # Sort by gas ratio (lowest first = cheapest)
     candidates.sort(key=lambda x: x[1])
-
-    # Prefer the cheapest network whose gas ratio is under threshold
-    for net_id, ratio in candidates:
-        if ratio <= gas_ratio_threshold:
-            return net_id, f"Optimal: {NETWORKS[net_id]['name']} (gas={ratio*100:.2f}% of trade)"
-
-    # All too expensive — pick cheapest anyway
     best = candidates[0]
-    return best[0], f"High gas: {NETWORKS[best[0]]['name']} (gas={best[1]*100:.2f}% of trade — above 2% threshold)"
+    return best[0], f"Optimal: {NETWORKS[best[0]]['name']} (gas={best[1]*100:.2f}% of trade)"
 
 
 def get_gas_fee(network: str) -> float:
