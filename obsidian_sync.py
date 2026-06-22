@@ -1,8 +1,12 @@
 """Obsidian Sync — pulls daily AI trading report from Render backend
-and writes it into the local Obsidian vault brain directory."""
+and writes it into the local Obsidian vault brain directory.
+
+Runs continuously — refreshes every 10 minutes.
+"""
 
 import os
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -44,15 +48,27 @@ def save_report(markdown: str) -> Path | None:
     return filepath
 
 
-def main():
-    ensure_requests()
+def run_once():
+    """Fetch and save a single report. Returns True on success."""
     md = fetch_report()
     if md is None:
-        print("[obsidian_sync] Rapor alinamadi — islem iptal.")
-        sys.exit(1)
+        return False
     save_report(md)
-    print("[obsidian_sync] Tamamlandi.")
+    return True
+
+
+def run_forever():
+    """Continuous loop: fetch report every 10 minutes, overwrite same file."""
+    ensure_requests()
+    print("[obsidian_sync] Surekli mod baslatildi — her 10 dakikada bir tazeleme yapilacak.")
+    while True:
+        ok = run_once()
+        if ok:
+            print("[obsidian_sync] Baglanti tazelendi, yeni veriler kilitlendi.")
+        else:
+            print("[obsidian_sync] Rapor cekilemedi — 10 dakika sonra tekrar denenecek.")
+        time.sleep(600)
 
 
 if __name__ == "__main__":
-    main()
+    run_forever()
