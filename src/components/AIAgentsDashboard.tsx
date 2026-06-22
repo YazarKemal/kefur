@@ -21,7 +21,7 @@ import {
 import { AIAgent, BackendCEOStatus, TradingDiaryEntry, SentimentReport, PositionCap, WalletNetwork } from '../types';
 import { TranslationSet } from '../translations';
 
-const API_BASE = 'http://10.0.2.2:8000';
+const API_BASE = 'https://kefur-backend.onrender.com';
 
 interface BackendAgent {
   id: string;

@@ -3,30 +3,61 @@
     "nexus": {
       "id": "nexus",
       "name": "Nexus",
-      "cash": 333.34,
+      "cash": 229.99,
       "managed_balance": 333.34,
       "wallets": {
-        "ethereum": 133.34,
-        "arbitrum": 100.0,
+        "ethereum": 129.99,
+        "arbitrum": 0.0,
         "osmosis": 100.0
       },
       "positions": {
         "BTC": 0.0,
-        "ETH": 0.0,
+        "ETH": 0.0017204591882554168,
         "SOL": 0.0
       },
       "cost_basis": {
         "BTC": 0.0,
-        "ETH": 0.0,
+        "ETH": 58125.18,
         "SOL": 0.0
       },
-      "recent_trades": [],
-      "trading_diary": [],
-      "total_trades": 0,
+      "recent_trades": [
+        {
+          "id": "nexus-1",
+          "pair": "ETH/USDT",
+          "side": "LONG",
+          "asset": "ETH",
+          "quantity": 0.00172,
+          "price": 58125.18,
+          "usd_amount": 100.0,
+          "network": "arbitrum",
+          "gas_fee": 3.35,
+          "time": "2026-06-22T20:51:16.188146+00:00",
+          "pnl": null,
+          "_position_cap": 100,
+          "_cap_reason": "CEO Risk LOW \u2192 full capacity | Volatility %0.03 \u2014 normal | Bullish news (+3\u2191) \u2014 no extra restriction"
+        }
+      ],
+      "trading_diary": [
+        {
+          "trade_id": "nexus-1",
+          "pair": "ETH/USDT",
+          "side": "LONG",
+          "asset": "ETH",
+          "quantity": 0.00172,
+          "price": 58125.18,
+          "pnl_usd": 0.0,
+          "pnl_percent": 0,
+          "reason": "Gas fee: \u20ba3.35 on arbitrum",
+          "success": false,
+          "trigger": "MANUAL",
+          "time": "2026-06-22T20:51:16.188146+00:00"
+        }
+      ],
+      "total_trades": 1,
       "winning_trades": 0,
-      "pnl_percent": 0.0,
+      "pnl_percent": -1.04,
       "win_rate": 0.0,
-      "uptime_minutes": 1205,
+      "uptime_minutes": 1258,
       "started_at": "2026-06-22T00:00:00+00:00"
     },
     "oracle": {
@@ -84,9 +115,9 @@
       ],
       "total_trades": 1,
       "winning_trades": 0,
-      "pnl_percent": -0.15,
+      "pnl_percent": -0.23,
       "win_rate": 0.0,
-      "uptime_minutes": 1205,
+      "uptime_minutes": 1258,
       "started_at": "2026-06-22T00:00:00+00:00"
     },
     "sentinel": {
@@ -115,11 +146,11 @@
       "winning_trades": 0,
       "pnl_percent": 0.0,
       "win_rate": 0.0,
-      "uptime_minutes": 1205,
+      "uptime_minutes": 1258,
       "started_at": "2026-06-22T00:00:00+00:00"
     }
   },
-  "last_loop_at": "2026-06-22T20:05:47.237398+00:00",
+  "last_loop_at": "2026-06-22T20:58:12.280301+00:00",
   "started_at": "2026-06-22T00:00:00+00:00",
   "_last_ceo": {
     "sentiment": "NEUTRAL",
@@ -128,7 +159,7 @@
       "oracle",
       "sentinel"
     ],
-    "guidance": "Haberler n\u00f6tr, ancak UK FCA uyar\u0131s\u0131 ve Vanguard/Abu Dhabi gibi kurumsal geli\u015fmeler var. Agresif scalping yapma, Oracle temkinli swing, Sentinel arbitraj f\u0131rsat\u0131 kollas\u0131n."
+    "guidance": "Haberler karisik oldugu icin temkinli olun. Oracle ve Sentinel aktif, Nexus beklemede. BOJ faiz artirimi nedeniyle riskli varliklarda dalgalanma bekleniyor, arbitraj firsatlarini kollayin."
   },
   "_position_caps": {
     "nexus": {
@@ -138,48 +169,48 @@
     "oracle": {
       "cap_pct": 50,
       "cap_multiplier": 0.5,
-      "reason": "CEO Risk MEDIUM \u2192 %50 cap | Volatility %0.05 \u2014 normal",
-      "asset_volatility": 0.051
+      "reason": "CEO Risk MEDIUM \u2192 %50 cap | Volatility %0.03 \u2014 normal",
+      "asset_volatility": 0.034
     },
     "sentinel": {
       "cap_pct": 50,
       "cap_multiplier": 0.5,
-      "reason": "CEO Risk MEDIUM \u2192 %50 cap | Volatility %0.07 \u2014 normal",
-      "asset_volatility": 0.074
+      "reason": "CEO Risk MEDIUM \u2192 %50 cap | Volatility %0.02 \u2014 normal",
+      "asset_volatility": 0.016
     }
   },
   "_last_sentiment": {
     "overall_sentiment": "NEUTRAL",
-    "overall_score": 0,
-    "top_headline": "US CPI print comes in at 3.1% YoY, below forecasts \u2014 bond yields drop, BTC spikes 4%",
-    "top_impact": "NEUTRAL",
-    "analysis": "Sentiment analizi yapilamadi: Expecting ',' delimiter: line 26 column 6 (char 1404). Teknik gostergelerle devam ediliyor.",
+    "overall_score": 1,
+    "top_headline": "EU Parliament passes MiCA framework \u2014 exchanges must register by Q4 deadline",
+    "top_impact": "BULLISH",
+    "analysis": "Piyasa karisik sinyaller aliyor: AB'deki MiCA onayi ve Coinbase'in guclu performansi bullish etki yaratirken, Japonya faiz artirimi ve UK uyum uyarilari bearish riskler tasiyor. Genel olarak kisa vadede denge hakim, ancak BOJ karari nedeniyle temkinli olunmali.",
     "headlines": [
       {
-        "headline": "US CPI print comes in at 3.1% YoY, below forecasts \u2014 bond yields drop, BTC spikes 4%",
-        "impact": "NEUTRAL",
-        "score": 0,
-        "reasoning": "API hatasi \u2014 manuel degerlendirme"
+        "headline": "EU Parliament passes MiCA framework \u2014 exchanges must register by Q4 deadline",
+        "impact": "BULLISH",
+        "score": 2,
+        "reasoning": "MiCA regulasyonu AB'de kripto para borsalarina net bir yasal cerceve getiriyor, kurumsal guveni artiriyor ve BTC, ETH, SOL icin pozitif."
       },
       {
-        "headline": "Vanguard reverses stance, plans to offer crypto exposure via managed funds",
-        "impact": "NEUTRAL",
-        "score": 0,
-        "reasoning": "API hatasi \u2014 manuel degerlendirme"
+        "headline": "Bank of Japan unexpectedly raises rates to 0.5% \u2014 carry trade unwind fears hit risk assets",
+        "impact": "BEARISH",
+        "score": -2,
+        "reasoning": "Japonya faiz artirimi riskli varliklardan cikisa neden olabilir, kripto piyasalarinda satis baskisi yaratir."
       },
       {
-        "headline": "Abu Dhabi sovereign wealth fund discloses $400M Bitcoin position in 13F filing",
-        "impact": "NEUTRAL",
-        "score": 0,
-        "reasoning": "API hatasi \u2014 manuel degerlendirme"
+        "headline": "Coinbase reports record $3.2B quarterly revenue \u2014 trading volume explodes in Q2",
+        "impact": "BULLISH",
+        "score": 2,
+        "reasoning": "Coinbase'in rekor geliri ve artan islem hacmi, kripto piyasasina olan talebin guclu oldugunu gosteriyor, BTC, ETH, SOL icin pozitif."
       },
       {
         "headline": "UK FCA warns 140+ crypto firms operating without registration \u2014 compliance crackdown looms",
-        "impact": "NEUTRAL",
-        "score": 0,
-        "reasoning": "API hatasi \u2014 manuel degerlendirme"
+        "impact": "BEARISH",
+        "score": -1,
+        "reasoning": "UK'deki uyum baskisi kisa vadede belirsizlik yaratabilir, ancak uzun vadede sektoru temizleyebilir; hafif negatif."
       }
     ],
-    "fetched_at": "2026-06-22T20:05:33.642453+00:00"
+    "fetched_at": "2026-06-22T20:58:00.671512+00:00"
   }
 }

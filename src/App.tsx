@@ -277,7 +277,7 @@ export default function App() {
     let cancelled = false;
     async function fetchInsights() {
       try {
-        const res = await fetch('http://10.0.2.2:8000/api/insights');
+        const res = await fetch('https://kefur-backend.onrender.com/api/insights');
         if (!res.ok) return;
         const data: BackendInsights = await res.json();
         if (cancelled) return;
@@ -323,7 +323,7 @@ export default function App() {
     let cancelled = false;
     async function fetchDiary() {
       try {
-        const res = await fetch('http://10.0.2.2:8000/api/agents');
+        const res = await fetch('https://kefur-backend.onrender.com/api/agents');
         if (!res.ok) return;
         const data = await res.json();
         if (cancelled) return;
