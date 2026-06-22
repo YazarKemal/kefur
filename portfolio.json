@@ -1,0 +1,93 @@
+{
+  "agents": {
+    "nexus": {
+      "id": "nexus",
+      "name": "Nexus",
+      "cash": 1000.0,
+      "managed_balance": 1000.0,
+      "wallets": {
+        "ethereum": 400.0,
+        "arbitrum": 300.0,
+        "osmosis": 300.0
+      },
+      "positions": {
+        "BTC": 0.0,
+        "ETH": 0.0,
+        "SOL": 0.0
+      },
+      "cost_basis": {
+        "BTC": 0.0,
+        "ETH": 0.0,
+        "SOL": 0.0
+      },
+      "recent_trades": [],
+      "trading_diary": [],
+      "total_trades": 0,
+      "winning_trades": 0,
+      "pnl_percent": 0.0,
+      "win_rate": 0.0,
+      "uptime_minutes": 0,
+      "started_at": "2026-06-22T00:00:00+00:00"
+    },
+    "oracle": {
+      "id": "oracle",
+      "name": "Oracle",
+      "cash": 1000.0,
+      "managed_balance": 1000.0,
+      "wallets": {
+        "ethereum": 400.0,
+        "arbitrum": 300.0,
+        "osmosis": 300.0
+      },
+      "positions": {
+        "BTC": 0.0,
+        "ETH": 0.0,
+        "SOL": 0.0
+      },
+      "cost_basis": {
+        "BTC": 0.0,
+        "ETH": 0.0,
+        "SOL": 0.0
+      },
+      "recent_trades": [],
+      "trading_diary": [],
+      "total_trades": 0,
+      "winning_trades": 0,
+      "pnl_percent": 0.0,
+      "win_rate": 0.0,
+      "uptime_minutes": 0,
+      "started_at": "2026-06-22T00:00:00+00:00"
+    },
+    "sentinel": {
+      "id": "sentinel",
+      "name": "Sentinel",
+      "cash": 1000.0,
+      "managed_balance": 1000.0,
+      "wallets": {
+        "ethereum": 400.0,
+        "arbitrum": 300.0,
+        "osmosis": 300.0
+      },
+      "positions": {
+        "BTC": 0.0,
+        "ETH": 0.0,
+        "SOL": 0.0
+      },
+      "cost_basis": {
+        "BTC": 0.0,
+        "ETH": 0.0,
+        "SOL": 0.0
+      },
+      "recent_trades": [],
+      "trading_diary": [],
+      "total_trades": 0,
+      "winning_trades": 0,
+      "pnl_percent": 0.0,
+      "win_rate": 0.0,
+      "uptime_minutes": 0,
+      "started_at": "2026-06-22T00:00:00+00:00"
+    }
+  },
+  "last_loop_at": null,
+  "started_at": "2026-06-22T00:00:00+00:00"
+}

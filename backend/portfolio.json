@@ -1,0 +1,185 @@
+{
+  "agents": {
+    "nexus": {
+      "id": "nexus",
+      "name": "Nexus",
+      "cash": 333.34,
+      "managed_balance": 333.34,
+      "wallets": {
+        "ethereum": 133.34,
+        "arbitrum": 100.0,
+        "osmosis": 100.0
+      },
+      "positions": {
+        "BTC": 0.0,
+        "ETH": 0.0,
+        "SOL": 0.0
+      },
+      "cost_basis": {
+        "BTC": 0.0,
+        "ETH": 0.0,
+        "SOL": 0.0
+      },
+      "recent_trades": [],
+      "trading_diary": [],
+      "total_trades": 0,
+      "winning_trades": 0,
+      "pnl_percent": 0.0,
+      "win_rate": 0.0,
+      "uptime_minutes": 1205,
+      "started_at": "2026-06-22T00:00:00+00:00"
+    },
+    "oracle": {
+      "id": "oracle",
+      "name": "Oracle",
+      "cash": 249.33,
+      "managed_balance": 333.33,
+      "wallets": {
+        "ethereum": 133.33,
+        "arbitrum": 100.0,
+        "osmosis": 16.0
+      },
+      "positions": {
+        "BTC": 0.0,
+        "ETH": 0.0014333671955385828,
+        "SOL": 0.0
+      },
+      "cost_basis": {
+        "BTC": 0.0,
+        "ETH": 58137.58,
+        "SOL": 0.0
+      },
+      "recent_trades": [
+        {
+          "id": "oracle-1",
+          "pair": "ETH/USDT",
+          "side": "LONG",
+          "asset": "ETH",
+          "quantity": 0.001433,
+          "price": 58137.58,
+          "usd_amount": 83.33,
+          "network": "osmosis",
+          "gas_fee": 0.67,
+          "time": "2026-06-22T19:56:30.209388+00:00",
+          "pnl": null,
+          "_position_cap": 50,
+          "_cap_reason": "CEO Risk MEDIUM \u2192 %50 cap | Bullish news (+3\u2191) \u2014 no extra restriction"
+        }
+      ],
+      "trading_diary": [
+        {
+          "trade_id": "oracle-1",
+          "pair": "ETH/USDT",
+          "side": "LONG",
+          "asset": "ETH",
+          "quantity": 0.001433,
+          "price": 58137.58,
+          "pnl_usd": 0.0,
+          "pnl_percent": 0,
+          "reason": "Gas fee: \u20ba0.67 on osmosis",
+          "success": false,
+          "trigger": "MANUAL",
+          "time": "2026-06-22T19:56:30.209388+00:00"
+        }
+      ],
+      "total_trades": 1,
+      "winning_trades": 0,
+      "pnl_percent": -0.15,
+      "win_rate": 0.0,
+      "uptime_minutes": 1205,
+      "started_at": "2026-06-22T00:00:00+00:00"
+    },
+    "sentinel": {
+      "id": "sentinel",
+      "name": "Sentinel",
+      "cash": 333.33,
+      "managed_balance": 333.33,
+      "wallets": {
+        "ethereum": 133.33,
+        "arbitrum": 100.0,
+        "osmosis": 100.0
+      },
+      "positions": {
+        "BTC": 0.0,
+        "ETH": 0.0,
+        "SOL": 0.0
+      },
+      "cost_basis": {
+        "BTC": 0.0,
+        "ETH": 0.0,
+        "SOL": 0.0
+      },
+      "recent_trades": [],
+      "trading_diary": [],
+      "total_trades": 0,
+      "winning_trades": 0,
+      "pnl_percent": 0.0,
+      "win_rate": 0.0,
+      "uptime_minutes": 1205,
+      "started_at": "2026-06-22T00:00:00+00:00"
+    }
+  },
+  "last_loop_at": "2026-06-22T20:05:47.237398+00:00",
+  "started_at": "2026-06-22T00:00:00+00:00",
+  "_last_ceo": {
+    "sentiment": "NEUTRAL",
+    "risk_level": "MEDIUM",
+    "active_agents": [
+      "oracle",
+      "sentinel"
+    ],
+    "guidance": "Haberler n\u00f6tr, ancak UK FCA uyar\u0131s\u0131 ve Vanguard/Abu Dhabi gibi kurumsal geli\u015fmeler var. Agresif scalping yapma, Oracle temkinli swing, Sentinel arbitraj f\u0131rsat\u0131 kollas\u0131n."
+  },
+  "_position_caps": {
+    "nexus": {
+      "cap_pct": 0,
+      "reason": "Agent inactive"
+    },
+    "oracle": {
+      "cap_pct": 50,
+      "cap_multiplier": 0.5,
+      "reason": "CEO Risk MEDIUM \u2192 %50 cap | Volatility %0.05 \u2014 normal",
+      "asset_volatility": 0.051
+    },
+    "sentinel": {
+      "cap_pct": 50,
+      "cap_multiplier": 0.5,
+      "reason": "CEO Risk MEDIUM \u2192 %50 cap | Volatility %0.07 \u2014 normal",
+      "asset_volatility": 0.074
+    }
+  },
+  "_last_sentiment": {
+    "overall_sentiment": "NEUTRAL",
+    "overall_score": 0,
+    "top_headline": "US CPI print comes in at 3.1% YoY, below forecasts \u2014 bond yields drop, BTC spikes 4%",
+    "top_impact": "NEUTRAL",
+    "analysis": "Sentiment analizi yapilamadi: Expecting ',' delimiter: line 26 column 6 (char 1404). Teknik gostergelerle devam ediliyor.",
+    "headlines": [
+      {
+        "headline": "US CPI print comes in at 3.1% YoY, below forecasts \u2014 bond yields drop, BTC spikes 4%",
+        "impact": "NEUTRAL",
+        "score": 0,
+        "reasoning": "API hatasi \u2014 manuel degerlendirme"
+      },
+      {
+        "headline": "Vanguard reverses stance, plans to offer crypto exposure via managed funds",
+        "impact": "NEUTRAL",
+        "score": 0,
+        "reasoning": "API hatasi \u2014 manuel degerlendirme"
+      },
+      {
+        "headline": "Abu Dhabi sovereign wealth fund discloses $400M Bitcoin position in 13F filing",
+        "impact": "NEUTRAL",
+        "score": 0,
+        "reasoning": "API hatasi \u2014 manuel degerlendirme"
+      },
+      {
+        "headline": "UK FCA warns 140+ crypto firms operating without registration \u2014 compliance crackdown looms",
+        "impact": "NEUTRAL",
+        "score": 0,
+        "reasoning": "API hatasi \u2014 manuel degerlendirme"
+      }
+    ],
+    "fetched_at": "2026-06-22T20:05:33.642453+00:00"
+  }
+}

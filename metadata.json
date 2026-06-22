@@ -1,0 +1,6 @@
+{
+  "name": "KeFur",
+  "description": "A premium, minimalist dark mode mobile financial dashboard and AI stock/crypto prediction aggregator with real-time simulations and Google Search grounded expert insights.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

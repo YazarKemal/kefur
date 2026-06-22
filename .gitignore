@@ -1,0 +1,45 @@
+# ── Dependencies ──────────────────────────────────────────────
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+env/
+
+# ── Build output ──────────────────────────────────────────────
+build/
+dist/
+coverage/
+*.egg-info/
+
+# ── Environment & secrets ─────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.log
+
+# ── OS metadata ───────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ── IDE / editor ──────────────────────────────────────────────
+.vscode/
+.idea/
+*.iml
+
+# ── Claude Code ───────────────────────────────────────────────
+.claude/
+
+# ── Capacitor / Android (keep config, ignore build artifacts) ─
+android/app/build/
+android/build/
+android/.gradle/
+android/captures/
+android/local.properties
+
+# ── AI Studio metadata (keep) ─────────────────────────────────
+# assets/.aistudio/ is intentionally tracked
